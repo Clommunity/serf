@@ -2,8 +2,8 @@ package agent
 
 import (
 	"bytes"
-	"github.com/hashicorp/serf/client"
-	"github.com/hashicorp/serf/testutil"
+	"github.com/agustim/serf/client"
+	"github.com/agustim/serf/testutil"
 	"github.com/mitchellh/cli"
 	"log"
 	"os"

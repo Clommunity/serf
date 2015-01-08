@@ -2,9 +2,9 @@ package command
 
 import (
 	"fmt"
-	"github.com/hashicorp/serf/command/agent"
-	"github.com/hashicorp/serf/serf"
-	"github.com/hashicorp/serf/testutil"
+	"github.com/agustim/serf/command/agent"
+	"github.com/agustim/serf/serf"
+	"github.com/agustim/serf/testutil"
 	"io"
 	"math/rand"
 	"net"

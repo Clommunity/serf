@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"github.com/hashicorp/serf/serf"
+	"github.com/agustim/serf/serf"
 	"github.com/mitchellh/mapstructure"
 	"io"
 	"net"

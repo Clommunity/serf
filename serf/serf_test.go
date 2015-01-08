@@ -13,7 +13,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/memberlist"
-	"github.com/hashicorp/serf/testutil"
+	"github.com/agustim/serf/testutil"
 )
 
 func testConfig() *Config {

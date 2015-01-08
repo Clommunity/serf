@@ -2,7 +2,7 @@ package agent
 
 import (
 	"fmt"
-	"github.com/hashicorp/serf/serf"
+	"github.com/agustim/serf/serf"
 	"io/ioutil"
 	"net"
 	"os"

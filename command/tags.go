@@ -3,7 +3,7 @@ package command
 import (
 	"flag"
 	"fmt"
-	"github.com/hashicorp/serf/command/agent"
+	"github.com/agustim/serf/command/agent"
 	"github.com/mitchellh/cli"
 	"strings"
 )

@@ -26,7 +26,7 @@ import (
 	"fmt"
 	"github.com/armon/go-metrics"
 	"github.com/hashicorp/logutils"
-	"github.com/hashicorp/serf/serf"
+	"github.com/agustim/serf/serf"
 	"github.com/hashicorp/go-msgpack/codec"
 	"io"
 	"log"

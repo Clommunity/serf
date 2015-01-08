@@ -2,7 +2,7 @@ package agent
 
 import (
 	"bytes"
-	"github.com/hashicorp/serf/serf"
+	"github.com/agustim/serf/serf"
 	"log"
 	"net"
 	"os"
