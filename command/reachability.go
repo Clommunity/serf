@@ -41,15 +41,21 @@ Options:
   -rpc-addr=127.0.0.1:7373  RPC address of the Serf agent.
   -rpc-auth=""              RPC auth token of the Serf agent.
   -verbose                  Verbose mode
+  -json                     Json mode
 `
 	return strings.TrimSpace(helpText)
 }
 
 func (c *ReachabilityCommand) Run(args []string) int {
 	var verbose bool
+	var json bool
+	var jsonfirst bool
+
 	cmdFlags := flag.NewFlagSet("reachability", flag.ContinueOnError)
 	cmdFlags.Usage = func() { c.Ui.Output(c.Help()) }
 	cmdFlags.BoolVar(&verbose, "verbose", false, "verbose mode")
+	cmdFlags.BoolVar(&json, "json", false, "json mode")
+	jsonfirst = true
 	rpcAddr := RPCAddrFlag(cmdFlags)
 	rpcAuth := RPCAuthFlag(cmdFlags)
 	if err := cmdFlags.Parse(args); err != nil {
@@ -79,8 +85,11 @@ func (c *ReachabilityCommand) Run(args []string) int {
 			liveMembers[m.Name] = struct{}{}
 		}
 	}
-	c.Ui.Output(fmt.Sprintf("Total members: %d, live members: %d", len(members), len(liveMembers)))
-
+	if json {
+		c.Ui.Output("[")
+	} else {
+		c.Ui.Output(fmt.Sprintf("Total members: %d, live members: %d", len(members), len(liveMembers)))
+	}
 	// Start the query
 	params := client.QueryParam{
 		RequestAck: true,
@@ -91,7 +100,9 @@ func (c *ReachabilityCommand) Run(args []string) int {
 		c.Ui.Error(fmt.Sprintf("Error sending query: %s", err))
 		return 1
 	}
-	c.Ui.Output("Starting reachability test...")
+	if !json {
+		c.Ui.Output("Starting reachability test...")
+	}
 	start := time.Now()
 	last := time.Now()
 
@@ -109,12 +120,25 @@ OUTER:
 				break OUTER
 			}
 			if verbose {
-				c.Ui.Output(fmt.Sprintf("\tAck from '%s'", a))
+				c.Ui.Output(fmt.Sprintf("\tAck from '%s'\tTime: %0.2f", a,(float64(time.Now().Sub(start)) / float64(time.Second))))
+			}
+			if json {
+				if !jsonfirst {
+					c.Ui.Output("\t,")
+				} else {
+					jsonfirst = false
+				}
+				c.Ui.Output(fmt.Sprintf("\t{"))				
+				c.Ui.Output(fmt.Sprintf("\t\"node\": \"%s\",",a))
+				c.Ui.Output(fmt.Sprintf("\t\"acktime\":\"%0.3f\"",(float64(time.Now().Sub(start)) / float64(time.Second))))
+				c.Ui.Output(fmt.Sprintf("\t}"))
 			}
 			numAcks++
 			if _, ok := acksFrom[a]; ok {
 				dups = true
-				c.Ui.Output(fmt.Sprintf("Duplicate response from '%v'", a))
+				if !json {
+					c.Ui.Output(fmt.Sprintf("Duplicate response from '%v'", a))
+				}
 			}
 			acksFrom[a] = struct{}{}
 			last = time.Now()
@@ -138,30 +162,34 @@ OUTER:
 	}
 
 	n := len(liveMembers)
-	if numAcks == n {
-		c.Ui.Output("Successfully contacted all live nodes")
+	if json {
+				c.Ui.Output("]")
+	} else {
+		if numAcks == n {
+			c.Ui.Output("Successfully contacted all live nodes")
 
-	} else if numAcks > n {
-		c.Ui.Output("Received more acks than live nodes! Acks from non-live nodes:")
-		for m := range acksFrom {
-			if _, ok := liveMembers[m]; !ok {
-				c.Ui.Output(fmt.Sprintf("\t%s", m))
+		} else if numAcks > n {
+			c.Ui.Output("Received more acks than live nodes! Acks from non-live nodes:")
+			for m := range acksFrom {
+				if _, ok := liveMembers[m]; !ok {
+					c.Ui.Output(fmt.Sprintf("\t%s", m))
+				}
 			}
-		}
-		c.Ui.Output(tooManyAcks)
-		c.Ui.Output(troubleshooting)
-		return 1
+			c.Ui.Output(tooManyAcks)
+			c.Ui.Output(troubleshooting)
+			return 1
 
-	} else if numAcks < n {
-		c.Ui.Output("Received less acks than live nodes! Missing acks from:")
-		for m := range liveMembers {
-			if _, ok := acksFrom[m]; !ok {
-				c.Ui.Output(fmt.Sprintf("\t%s", m))
+		} else if numAcks < n {
+			c.Ui.Output("Received less acks than live nodes! Missing acks from:")
+			for m := range liveMembers {
+				if _, ok := acksFrom[m]; !ok {
+					c.Ui.Output(fmt.Sprintf("\t%s", m))
+				}
 			}
+			c.Ui.Output(tooFewAcks)
+			c.Ui.Output(troubleshooting)
+			return 1
 		}
-		c.Ui.Output(tooFewAcks)
-		c.Ui.Output(troubleshooting)
-		return 1
 	}
 	return exit
 }
