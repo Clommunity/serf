@@ -17,7 +17,7 @@ import (
 	"github.com/armon/go-metrics"
 	"github.com/hashicorp/go-msgpack/codec"
 	"github.com/hashicorp/memberlist"
-	"github.com/laher/goxc/config"
+//	"github.com/laher/goxc/config"
 )
 
 // These are the protocol versions that Serf can _understand_. These are
@@ -350,9 +350,9 @@ func Create(conf *Config) (*Serf, error) {
 	conf.MemberlistConfig.ProtocolVersion = ProtocolVersionMap[conf.ProtocolVersion]
 
 	// Setup a merge delegate if necessary
-	if config.Merge != nil {
-		conf.MemberlistConfig.Merge = &mergeDelegate{serf: serf}
-	}
+	//if config.Merge != nil {
+	//	conf.MemberlistConfig.Merge = &mergeDelegate{serf: serf}
+	//}
 
 	// Create the underlying memberlist that will manage membership
 	// and failure detection for the Serf instance.
