@@ -216,7 +216,7 @@ func DefaultConfig() *Config {
 	return &Config{
 		NodeName:                     hostname,
 		BroadcastTimeout:             5 * time.Second,
-		EventBuffer:                  512,
+		EventBuffer:                  2048,
 		QueryBuffer:                  512,
 		LogOutput:                    os.Stderr,
 		ProtocolVersion:              ProtocolVersionMax,
