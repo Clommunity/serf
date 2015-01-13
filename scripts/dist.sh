@@ -25,6 +25,7 @@ echo "Version: ${VERSION} ${PREVERSION}"
 XC_ARCH=${XC_ARCH:-"386 amd64 arm"}
 XC_OS=${XC_OS:-linux darwin windows freebsd openbsd}
 
+
 echo "Arch: ${XC_ARCH}"
 echo "OS: ${XC_OS}"
 
@@ -40,8 +41,8 @@ goxc \
     -pr="${PREVERSION}" \
     $XC_OPTS \
     go-install \
-    xc
-
+    xc \
+		-GO386=387
 # Zip all the packages
 mkdir -p ./pkg/${VERSIONDIR}/dist
 for PLATFORM in $(find ./pkg/${VERSIONDIR} -mindepth 1 -maxdepth 1 -type d); do
