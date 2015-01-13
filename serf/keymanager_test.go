@@ -3,7 +3,7 @@ package serf
 import (
 	"bytes"
 	"encoding/base64"
-	"github.com/hashicorp/memberlist"
+	"github.com/agustim/memberlist"
 	"github.com/agustim/serf/testutil"
 	"testing"
 )

@@ -16,7 +16,7 @@ import (
 
 	"github.com/armon/go-metrics"
 	"github.com/hashicorp/go-msgpack/codec"
-	"github.com/hashicorp/memberlist"
+	"github.com/agustim/memberlist"
 //	"github.com/laher/goxc/config"
 )
 

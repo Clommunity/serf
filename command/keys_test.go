@@ -2,7 +2,7 @@ package command
 
 import (
 	"encoding/base64"
-	"github.com/hashicorp/memberlist"
+	"github.com/agustim/memberlist"
 	"github.com/agustim/serf/client"
 	"github.com/agustim/serf/command/agent"
 	"github.com/agustim/serf/serf"

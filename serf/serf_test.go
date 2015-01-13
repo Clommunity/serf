@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hashicorp/memberlist"
+	"github.com/agustim/memberlist"
 	"github.com/agustim/serf/testutil"
 )
 
