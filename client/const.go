@@ -1,8 +1,8 @@
 package client
 
 import (
-	"github.com/hashicorp/serf/coordinate"
-	"github.com/hashicorp/serf/serf"
+	"github.com/Clommunity/serf/coordinate"
+	"github.com/Clommunity/serf/serf"
 	"net"
 	"time"
 )

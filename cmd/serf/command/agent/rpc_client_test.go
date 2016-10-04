@@ -3,9 +3,9 @@ package agent
 import (
 	"bytes"
 	"encoding/base64"
-	"github.com/hashicorp/serf/client"
-	"github.com/hashicorp/serf/serf"
-	"github.com/hashicorp/serf/testutil"
+	"github.com/Clommunity/serf/client"
+	"github.com/Clommunity/serf/serf"
+	"github.com/Clommunity/serf/testutil"
 	"io"
 	"net"
 	"os"

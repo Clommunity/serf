@@ -12,7 +12,7 @@ import (
 	"sync"
 
 	"github.com/hashicorp/memberlist"
-	"github.com/hashicorp/serf/serf"
+	"github.com/Clommunity/serf/serf"
 )
 
 // Agent starts and manages a Serf instance, adding some niceties

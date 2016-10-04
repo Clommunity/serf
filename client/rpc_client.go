@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/hashicorp/go-msgpack/codec"
 	"github.com/hashicorp/logutils"
-	"github.com/hashicorp/serf/coordinate"
+	"github.com/Clommunity/serf/coordinate"
 	"log"
 	"net"
 	"sync"

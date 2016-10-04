@@ -3,7 +3,7 @@ package command
 import (
 	"bytes"
 	"fmt"
-	"github.com/hashicorp/serf/serf"
+	"github.com/Clommunity/serf/serf"
 	"github.com/mitchellh/cli"
 )
 

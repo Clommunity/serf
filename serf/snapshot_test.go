@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hashicorp/serf/coordinate"
+	"github.com/Clommunity/serf/coordinate"
 )
 
 func TestSnapshotter(t *testing.T) {

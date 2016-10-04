@@ -3,8 +3,8 @@ package command
 import (
 	"flag"
 	"fmt"
-	"github.com/hashicorp/serf/client"
-	"github.com/hashicorp/serf/serf"
+	"github.com/Clommunity/serf/client"
+	"github.com/Clommunity/serf/serf"
 	"github.com/mitchellh/cli"
 	"strings"
 	"time"

@@ -1,7 +1,7 @@
 package command
 
 import (
-	"github.com/hashicorp/serf/client"
+	"github.com/Clommunity/serf/client"
 	"github.com/mitchellh/cli"
 	"strings"
 	"testing"

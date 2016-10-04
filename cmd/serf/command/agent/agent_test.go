@@ -2,8 +2,8 @@ package agent
 
 import (
 	"encoding/json"
-	"github.com/hashicorp/serf/serf"
-	"github.com/hashicorp/serf/testutil"
+	"github.com/Clommunity/serf/serf"
+	"github.com/Clommunity/serf/testutil"
 	"io/ioutil"
 	"os"
 	"path/filepath"

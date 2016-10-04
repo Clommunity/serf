@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hashicorp/serf/cmd/serf/command/agent"
-	"github.com/hashicorp/serf/serf"
-	"github.com/hashicorp/serf/testutil"
+	"github.com/Clommunity/serf/cmd/serf/command/agent"
+	"github.com/Clommunity/serf/serf"
+	"github.com/Clommunity/serf/testutil"
 )
 
 func init() {

@@ -13,7 +13,7 @@ import (
 	"time"
 
 	"github.com/armon/go-metrics"
-	"github.com/hashicorp/serf/coordinate"
+	"github.com/Clommunity/serf/coordinate"
 )
 
 /*

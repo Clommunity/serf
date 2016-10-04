@@ -129,7 +129,7 @@ coordinates:
 
 ```
 import (
-    "github.com/hashicorp/serf/coordinate"
+    "github.com/Clommunity/serf/coordinate"
     "math"
     "time"
 )

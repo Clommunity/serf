@@ -1,7 +1,7 @@
 package agent
 
 import (
-	"github.com/hashicorp/serf/serf"
+	"github.com/Clommunity/serf/serf"
 	"sync"
 )
 

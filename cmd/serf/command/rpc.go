@@ -2,7 +2,7 @@ package command
 
 import (
 	"flag"
-	"github.com/hashicorp/serf/client"
+	"github.com/Clommunity/serf/client"
 	"os"
 )
 

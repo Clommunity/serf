@@ -22,6 +22,6 @@ ENV GOPATH /gopath
 ENV GOROOT /goroot
 ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
 
-RUN mkdir -p $GOPATH/src/github.com/hashicorp/serf
-WORKDIR $GOPATH/src/github.com/hashicorp/serf
+RUN mkdir -p $GOPATH/src/github.com/Clommunity/serf
+WORKDIR $GOPATH/src/github.com/Clommunity/serf
 CMD ./scripts/dist_build.sh

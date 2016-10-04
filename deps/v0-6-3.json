@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/hashicorp/serf",
+	"ImportPath": "github.com/Clommunity/serf",
 	"GoVersion": "go1.3",
 	"Deps": [
 		{
