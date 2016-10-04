@@ -13,7 +13,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/go-msgpack/codec"
-	"github.com/hashicorp/memberlist"
+	"github.com/Clommunity/memberlist"
 	"github.com/Clommunity/serf/coordinate"
 	"github.com/Clommunity/serf/testutil"
 )

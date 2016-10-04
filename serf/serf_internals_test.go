@@ -1,7 +1,7 @@
 package serf
 
 import (
-	"github.com/hashicorp/memberlist"
+	"github.com/Clommunity/memberlist"
 	"github.com/Clommunity/serf/testutil"
 	"testing"
 	"time"

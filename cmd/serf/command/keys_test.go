@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hashicorp/memberlist"
+	"github.com/Clommunity/memberlist"
 	"github.com/Clommunity/serf/client"
 	"github.com/Clommunity/serf/cmd/serf/command/agent"
 	"github.com/Clommunity/serf/serf"

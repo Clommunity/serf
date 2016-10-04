@@ -1,7 +1,7 @@
 package serf
 
 import (
-	"github.com/hashicorp/memberlist"
+	"github.com/Clommunity/memberlist"
 )
 
 // broadcast is an implementation of memberlist.Broadcast and is used

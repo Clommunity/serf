@@ -11,7 +11,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/hashicorp/memberlist"
+	"github.com/Clommunity/memberlist"
 	"github.com/Clommunity/serf/serf"
 )
 

@@ -39,7 +39,7 @@
 			"Rev": "9d85cf22f9f8d53cb5c81c1b2749f438b2ee333f"
 		},
 		{
-			"ImportPath": "github.com/hashicorp/memberlist",
+			"ImportPath": "github.com/Clommunity/memberlist",
 			"Rev": "9888dc523910e5d22c5be4f6e34520943df21809"
 		},
 		{
