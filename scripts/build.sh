@@ -37,6 +37,7 @@ gox \
     -os="${XC_OS}" \
     -osarch="!darwin/arm" \
     -arch="${XC_ARCH}" \
+    -GO386=387 \
     -ldflags "-X main.GitCommit='${GIT_COMMIT}${GIT_DIRTY}'" \
     -output "pkg/{{.OS}}_{{.Arch}}/serf" \
     ./cmd/serf/
